@@ -1,4 +1,4 @@
-dropwizard-seed
+todo-backend-dropwizard
 ===============
 
-Dropwizard + gradle + lombok
+Dropwizard implementation of [todo-backend](http://todo-backend.thepete.net/)
