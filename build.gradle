@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'heroku'
 
 dependencies {
     compile 'io.dropwizard:dropwizard-core:0.7.1'
@@ -12,8 +11,3 @@ repositories {
 }
 
 mainClassName="service.PersonApplication"
-
-heroku {
-    apiKey = '3d36bd41-ae3a-489c-8adf-545a75677eab'
-    appName = 'todo-backend-dropwizard'
-}
