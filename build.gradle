@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
+defaultTasks 'clean', 'build'
+
 dependencies {
     compile 'io.dropwizard:dropwizard-core:0.7.1'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.14.2'
