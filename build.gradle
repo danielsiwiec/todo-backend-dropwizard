@@ -15,3 +15,7 @@ repositories {
 mainClassName="service.PersonApplication"
 
 task stage(dependsOn: ['clean', 'build'])
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
