@@ -13,3 +13,5 @@ repositories {
 }
 
 mainClassName="service.PersonApplication"
+
+task stage(dependsOn: ['clean', 'build'])
