@@ -1,4 +1,4 @@
 ---
 default_process_types:
-  web: export JAVA_OPTS="$JAVA_OPTS -Ddw.http.port=$PORT -Ddw.http.adminPort=$PORT" && ./gradlew run
+  web: cd build/libs && java -Ddw.server.applicationConnectors\[0\].port=$PORT -Ddw.server.applicationConnectors\[0\].port=$PORT -jar todo-backend-dropwizard-standalone.jar server ../../src/main/resources/config.yaml
 i

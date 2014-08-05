@@ -1,7 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'gradle-one-jar'
 
-defaultTasks 'clean', 'build'
+defaultTasks 'clean', 'buildFatJar'
+
+buildscript {
+    repositories {
+	mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
 
 dependencies {
     compile 'io.dropwizard:dropwizard-core:0.7.1'
@@ -14,8 +24,12 @@ repositories {
 
 mainClassName="service.PersonApplication"
 
-task stage(dependsOn: ['clean', 'build'])
+task stage(dependsOn: ['clean', 'buildFatJar'])
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
+}
+
+task buildFatJar(type: OneJar, dependsOn: test) {
+    mainClass = mainClassName
 }

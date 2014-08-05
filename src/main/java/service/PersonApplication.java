@@ -9,7 +9,7 @@ import resources.PersonResource;
 public class PersonApplication extends Application<Configuration> {
 
     public static void main(String[] args) throws Exception {
-        new PersonApplication().run(new String[]{"server"});
+        new PersonApplication().run(args);
     }
 
     @Override
