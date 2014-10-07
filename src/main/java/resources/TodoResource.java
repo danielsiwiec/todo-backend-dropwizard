@@ -1,26 +1,35 @@
 package resources;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import model.Todo;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 
 @Path("/todo")
 @Produces(MediaType.APPLICATION_JSON)
 public class TodoResource {
 
-    List<Todo> todos = Lists.newArrayList();
+    private Map<Integer, Todo> todos = Maps.newHashMap();
+    private int counter = 0;
 
     @GET
-    public List<Todo> get() {
-        return todos;
+    public Collection<Todo> get() {
+        return todos.values();
+    }
+
+    @GET
+    @Path("{id}")
+    public Todo getById(@PathParam("id") int id) {
+        return todos.get(id);
     }
 
     @POST
     public Todo addTodos(Todo todo) {
-        todos.add(todo);
+        todo.setId(++counter);
+        todos.put(counter, todo);
         return todo;
     }
 

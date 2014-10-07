@@ -1,5 +1,7 @@
 package service;
 
+import com.sun.jersey.api.core.ResourceConfig;
+import com.sun.jersey.server.linking.LinkFilter;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.setup.Bootstrap;
@@ -28,6 +30,7 @@ public class PersonApplication extends Application<Configuration> {
         environment.jersey().register(new PersonResource());
         environment.jersey().register(new TodoResource());
 
+        environment.jersey().property(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, LinkFilter.class);
         addCorsHeader(environment);
     }
 
