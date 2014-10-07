@@ -1,4 +1,3 @@
-applicationName: TODO Backend
 server:
   type: simple
   applicationContextPath: /
