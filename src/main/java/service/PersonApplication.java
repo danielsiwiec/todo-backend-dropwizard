@@ -38,6 +38,6 @@ public class PersonApplication extends Application<Configuration> {
         FilterRegistration.Dynamic filter = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
         filter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
         filter.setInitParameter("allowedOrigins", "*");
-        filter.setInitParameter("allowedMethods", "GET,PUT,POST,DELETE,OPTIONS,HEAD");
+        filter.setInitParameter("allowedMethods", "GET,PUT,POST,DELETE,OPTIONS,HEAD,PATCH");
     }
 }

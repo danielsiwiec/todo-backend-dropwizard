@@ -1,6 +1,7 @@
 package resources;
 
 import com.google.common.collect.Maps;
+import io.dropwizard.jersey.PATCH;
 import model.Todo;
 
 import javax.ws.rs.*;
@@ -29,6 +30,7 @@ public class TodoResource {
     @POST
     public Todo addTodos(Todo todo) {
         todo.setId(++counter);
+        todo.setCompleted(false);
         todos.put(counter, todo);
         return todo;
     }
@@ -36,5 +38,14 @@ public class TodoResource {
     @DELETE
     public void delete() {
         todos.clear();
+    }
+
+    @PATCH
+    @Path("{id}")
+    public Todo edit(@PathParam("id") int id, Todo patch) {
+        Todo todo = todos.get(id);
+        Todo patchedTodo = todo.patchFrom(patch);
+        todos.put(id, patchedTodo);
+        return patchedTodo;
     }
 }
