@@ -6,6 +6,7 @@ import lombok.Value;
 public class Todo {
 
     private final String title;
+    private boolean completed = false;
 
     public Todo(){
         title = "";
