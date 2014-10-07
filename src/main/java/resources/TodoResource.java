@@ -11,17 +11,21 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class TodoResource {
 
+    List<Todo> todos = Lists.newArrayList();
+
     @GET
-    public List<String> emptyGet() {
-        return Lists.newArrayList();
+    public List<Todo> get() {
+        return todos;
     }
 
     @POST
     public Todo addTodos(Todo todo) {
+        todos.add(todo);
         return todo;
     }
 
     @DELETE
-    public void emptyDelete() {
+    public void delete() {
+        todos.clear();
     }
 }
