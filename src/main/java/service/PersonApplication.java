@@ -5,6 +5,7 @@ import io.dropwizard.Configuration;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import resources.PersonResource;
+import resources.TodoResource;
 
 public class PersonApplication extends Application<Configuration> {
 
@@ -20,5 +21,6 @@ public class PersonApplication extends Application<Configuration> {
     @Override
     public void run(Configuration configuration, Environment environment) throws Exception {
         environment.jersey().register(new PersonResource());
+        environment.jersey().register(new TodoResource());
     }
 }
