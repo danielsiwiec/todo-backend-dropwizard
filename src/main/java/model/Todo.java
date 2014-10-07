@@ -16,6 +16,7 @@ public class Todo {
     private String title;
     private int id;
     private Boolean completed;
+    private Integer order;
     @Ref(resource = TodoResource.class, style = Ref.Style.ABSOLUTE, method = "getById")
     private URI url;
 
@@ -31,6 +32,10 @@ public class Todo {
 
         if (patch.title != null) {
             title = patch.title;
+        }
+
+        if (patch.order != null) {
+            order = patch.order;
         }
 
         return this;
