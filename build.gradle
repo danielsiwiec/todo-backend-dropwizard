@@ -24,12 +24,12 @@ repositories {
 
 mainClassName="service.PersonApplication"
 
-task stage(dependsOn: ['clean', 'buildFatJar'])
+task stage(dependsOn: 'buildFatJar')
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
-task buildFatJar(type: OneJar, dependsOn: test) {
+task buildFatJar(type: OneJar, dependsOn: [test,clean]) {
     mainClass = mainClassName
 }
