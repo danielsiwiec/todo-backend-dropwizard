@@ -1,5 +1,6 @@
 package resources;
 
+import com.google.common.collect.Lists;
 import model.Todo;
 
 import javax.ws.rs.*;
@@ -11,7 +12,8 @@ import java.util.List;
 public class TodoResource {
 
     @GET
-    public void emptyGet() {
+    public List<String> emptyGet() {
+        return Lists.newArrayList();
     }
 
     @POST
