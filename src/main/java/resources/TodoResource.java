@@ -40,6 +40,12 @@ public class TodoResource {
         todos.clear();
     }
 
+    @DELETE
+    @Path("{id}")
+    public void deleteById(@PathParam("id") int id) {
+        todos.remove(id);
+    }
+
     @PATCH
     @Path("{id}")
     public Todo edit(@PathParam("id") int id, Todo patch) {
