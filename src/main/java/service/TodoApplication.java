@@ -7,17 +7,16 @@ import io.dropwizard.Configuration;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
-import resources.PersonResource;
 import resources.TodoResource;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import java.util.EnumSet;
 
-public class PersonApplication extends Application<Configuration> {
+public class TodoApplication extends Application<Configuration> {
 
     public static void main(String[] args) throws Exception {
-        new PersonApplication().run(args);
+        new TodoApplication().run(new String[]{"server", "src/main/resources/config.yaml"});
     }
 
     @Override
@@ -27,7 +26,6 @@ public class PersonApplication extends Application<Configuration> {
 
     @Override
     public void run(Configuration configuration, Environment environment) throws Exception {
-        environment.jersey().register(new PersonResource());
         environment.jersey().register(new TodoResource());
 
         environment.jersey().property(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, LinkFilter.class);
