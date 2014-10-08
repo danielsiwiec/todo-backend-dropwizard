@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar build/libs/todo-backend-standalone.jar server src/main/resources/config.yaml
+web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar build/libs/todo-backend-standalone.jar
